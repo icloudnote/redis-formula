@@ -1,8 +1,7 @@
 #
 # This file is managed by salt. Do not edit by hand.
 #
-{% from "redis/map.jinja" import redis_settings with context %}
-################################## INCLUDES ################################### 
+################################## INCLUDES ###################################
 {% if redis_settings.include is defined %}
 {%- for include in redis_settings.include %}
 include {{ include }}

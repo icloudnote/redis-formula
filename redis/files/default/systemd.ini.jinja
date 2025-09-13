@@ -4,16 +4,23 @@
 [Unit]
 Description={{ desc }}
 Wants=network-online.target
-After=
+After=network-online.target
 Documentation=https://github.com/saltstack-formulas/prometheus-formula
 
 [Service]
-User={{ user }}
-Group={{ group }}
-WorkingDirectory={{ workdir }}
 ExecStart={{ start }}
 ExecStop={{ stop }}
 PIDFile=/var/run/{{ name }}.pid
+LimitNOFILE=65535
+# NoNewPrivileges=yes
+# OOMScoreAdjust=-900
+# PrivateTmp=yes
+# TimeoutStartSec=infinity
+# TimeoutStopSec=infinity
+# UMask=0077
+User={{ user }}
+Group={{ group }}
+WorkingDirectory={{ workdir }}
 
 [Install]
 WantedBy=multi-user.target

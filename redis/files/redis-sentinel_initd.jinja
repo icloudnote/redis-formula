@@ -16,8 +16,6 @@
 # Description: redis-sentinel - Persistent key-value db
 ### END INIT INFO
 
-{% from "redis/map.jinja" import redis_settings with context %}
-
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 DAEMON=/usr/bin/{{ redis_settings.sentinel_service }}
 DAEMON_ARGS={{ redis_settings.sentinel_cfg }}

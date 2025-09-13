@@ -1,5 +1,4 @@
 # Redis config
-{% from "redis/map.jinja" import redis_settings with context %}
 daemonize {{ redis_settings.daemonize }}
 
 pidfile {{ redis_settings.pidfile }}

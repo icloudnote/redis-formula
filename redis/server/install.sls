@@ -55,6 +55,8 @@ redis_config:
     - source: {{ r.source_path }}
     {%- endif %}
     - makedirs: True
+    - context:
+      redis_settings: {{ r }}
 
     {%- if r.install_from in ('source', 'archive') %}
 redis-initd:
@@ -70,6 +72,8 @@ redis-initd:
     - require_in:
       - file: redis_service
     {%- endif %}
+    - context:
+      redis_settings: {{ r }}
 
     {% if r.disable_transparent_huge_pages is defined and r.disable_transparent_huge_pages %}
 redis_disable_transparent_huge_pages:
